@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una sola cifra de venta · NovaRetail</title>
+<meta name="description" content="Tablero de resultados del taller de conciliación de la venta 2024–2025 de NovaRetail (IEFPI · Diplomado 023-26 · M1U3).">
+<style>
+:root{
+  --bg:#FBFAF7; --surface:#FFFFFF; --ink:#22262C; --ink2:#4A515B; --muted:#6B727C; --rule:#E3E5E8; --grid:#EEF0F2;
+  --focus:#2E6DA4; --alert:#C1592A; --ctx:#B8BEC6; --ctx-line:#9AA1AA; --brand:#1F4E79; --gold:#C8923D;
+  --focus-wash:#EAF1F8; --alert-wash:#FBEEE8; --gold-wash:#FBF4E8; --ok:#2E7D32;
+  --shadow:0 1px 2px rgba(20,30,40,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141516; --surface:#1C1D1F; --ink:#ECEDEE; --ink2:#C4C8CD; --muted:#9AA1AA; --rule:#2E3135; --grid:#26292C;
+    --focus:#4A8BD0; --alert:#D9693C; --ctx:#5A6068; --ctx-line:#7A8089; --brand:#9CC0E6; --gold:#D9A85C;
+    --focus-wash:#1E2A36; --alert-wash:#33221A; --gold-wash:#2E2719; --ok:#6CC070;
+    --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141516; --surface:#1C1D1F; --ink:#ECEDEE; --ink2:#C4C8CD; --muted:#9AA1AA; --rule:#2E3135; --grid:#26292C;
+  --focus:#4A8BD0; --alert:#D9693C; --ctx:#5A6068; --ctx-line:#7A8089; --brand:#9CC0E6; --gold:#D9A85C;
+  --focus-wash:#1E2A36; --alert-wash:#33221A; --gold-wash:#2E2719; --ok:#6CC070;
+  --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 56px}
+header.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:16px;margin-bottom:20px}
+.eyebrow{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+h1{font-size:clamp(22px,3.2vw,32px);line-height:1.2;margin:0 0 8px;font-weight:700;letter-spacing:-.01em;max-width:30ch}
+h1 .hl-f{color:var(--focus)} h1 .hl-a{color:var(--alert)}
+.lede{color:var(--ink2);margin:0;max-width:72ch}
+.theme-btn{flex:none;border:1px solid var(--rule);background:var(--surface);color:var(--ink2);border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;cursor:pointer}
+.controls{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);margin-bottom:22px}
+.ctl{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;color:var(--ink2);font:inherit;font-size:13px;padding:6px 12px;cursor:pointer;min-height:32px}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#141516}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#141516}}
+.seg button:focus-visible,.theme-btn:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.notice{font-size:13px;color:var(--alert);display:none}
+.notice.on{display:inline}
+.act{margin:34px 0 10px;display:flex;align-items:baseline;gap:12px}
+@media (max-width:600px){.act{flex-direction:column;gap:2px}}
+.act .n{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.act h2{font-size:clamp(18px,2.3vw,22px);margin:0;line-height:1.3;font-weight:650}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)} .g-hero{grid-template-columns:1.25fr 1fr 1fr}
+@media (max-width:820px){.g2,.g3,.g-hero{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 18px 14px;box-shadow:var(--shadow);min-width:0}
+.card h3{font-size:15px;margin:0 0 2px;font-weight:650}
+.card .sub{font-size:13px;color:var(--muted);margin:0 0 10px}
+.card .cardhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.tv{flex:none;border:0;background:none;color:var(--muted);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px}
+.tile .lab{font-size:13px;color:var(--muted);margin:0 0 4px}
+.tile .val{font-size:30px;font-weight:650;line-height:1.1;margin:0}
+.tile .delta{font-size:14px;color:var(--ink2);margin:6px 0 0}
+.hero{background:var(--focus-wash);border-color:transparent}
+.hero .val{font-size:clamp(44px,6vw,60px);color:var(--ink)}
+.hero .lab{color:var(--ink2);font-weight:600}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:hidden}
+.tbl{display:none;overflow-x:auto}
+.showtable .chart{display:none} .showtable .tbl{display:block}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.check{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ok);font-weight:600;margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--ink2);margin:2px 0 6px}
+.callout{border-left:4px solid var(--brand);background:var(--focus-wash);border-radius:0 10px 10px 0;padding:14px 16px;margin:0}
+.callout.a{border-color:var(--alert);background:var(--alert-wash)}
+.callout.g{border-color:var(--gold);background:var(--gold-wash)}
+.callout p{margin:0 0 8px} .callout p:last-child{margin:0}
+.def{font-size:16px;line-height:1.6}
+code,.mono{font-family:ui-monospace,"JetBrains Mono",Consolas,monospace;font-size:12.5px}
+.formula{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;margin-top:10px;overflow-x:auto}
+.raci td.l{text-align:center;font-weight:600;cursor:pointer;min-width:44px}
+.raci td.R{background:var(--focus-wash);color:var(--focus)}
+.raci td.A{background:var(--gold-wash);color:var(--gold)}
+.raci td.sel{outline:2px solid var(--focus);outline-offset:-2px}
+.why{min-height:96px;font-size:14px}
+.why .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 4px}
+ul.crit{list-style:none;padding:0;margin:0}
+ul.crit li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule);font-size:14px}
+ul.crit li:last-child{border:0}
+.ok{color:var(--ok);font-weight:700;flex:none;width:18px}
+details.k{margin-top:30px}
+details.k summary{cursor:pointer;font-weight:600;font-size:15px;padding:8px 0}
+.kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+@media (max-width:820px){.kgrid{grid-template-columns:1fr}}
+.kgrid .card h4{margin:0 0 6px;font-size:14px}
+.kgrid .card p{margin:0;font-size:13px;color:var(--ink2)}
+.foot{margin-top:30px;font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+#tip{position:fixed;pointer-events:none;z-index:20;background:var(--ink);color:var(--surface);font-size:12.5px;line-height:1.45;padding:8px 10px;border-radius:8px;max-width:260px;opacity:0;transition:opacity .12s;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+#tip b{font-weight:650}
+.mark{cursor:default}
+.mark:focus{outline:none}
+.mark:focus-visible rect,.mark:focus-visible path{stroke:var(--ink);stroke-width:1.5}
+@media (prefers-reduced-motion: reduce){#tip{transition:none}}
+@media print{.controls,.theme-btn,.tv{display:none} .card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div id="tip" role="status" aria-live="polite"></div>
+<div class="wrap">
+<header class="top">
+  <div>
+    <p class="eyebrow">NovaRetail · Comité de cierre 2025 · Conciliación de la venta</p>
+    <h1 id="bigidea">La venta creció <span class="hl-f" id="bi-n">14.35&nbsp;%</span>, no <span id="bi-b">20.13&nbsp;%</span>: las devoluciones de <span class="hl-a">e-commerce</span> explican la diferencia</h1>
+    <p class="lede">Comercial y Finanzas llegaron con cifras distintas porque llaman «venta» a cosas distintas. Este tablero muestra el puente que las concilia, qué explica la brecha y la definición única que acordamos.</p>
+  </div>
+  <button class="theme-btn" id="themeBtn" type="button" aria-label="Cambiar tema claro u oscuro">◐ Tema</button>
+</header>
+
+<div class="controls" role="group" aria-label="Controles del tablero">
+  <div class="ctl">Año del puente
+    <span class="seg" id="segYear"><button type="button" data-v="2024" aria-pressed="false">2024</button><button type="button" data-v="2025" aria-pressed="true">2025</button></span>
+  </div>
+  <div class="ctl">Cada devolución se carga al año de
+    <span class="seg" id="segCrit"><button type="button" data-v="venta" aria-pressed="true">la venta</button><button type="button" data-v="dev" aria-pressed="false">la devolución</button></span>
+  </div>
+  <span class="notice" id="critNote">Vista de sensibilidad: no es el criterio de la Convención.</span>
+</div>
+
+<!-- ACTO 1 -->
+<div class="act"><span class="n">1 · El conflicto</span><h2>Dos direcciones, dos cifras, una misma palabra</h2></div>
+<div class="grid g-hero">
+  <div class="card tile hero">
+    <p class="lab">Venta neta 2025 · definición única</p>
+    <p class="val" id="t-n">14.35&nbsp;%</p>
+    <p class="delta" id="t-n-d"></p>
+  </div>
+  <div class="card tile">
+    <p class="lab"><span class="swatch" style="background:var(--ctx)"></span>Comercial · venta bruta</p>
+    <p class="val" id="t-b">20.13&nbsp;%</p>
+    <p class="delta" id="t-b-d"></p>
+  </div>
+  <div class="card tile">
+    <p class="lab"><span class="swatch" style="background:var(--alert)"></span>Brecha entre las dos cifras</p>
+    <p class="val" id="t-g">5.78&nbsp;pts</p>
+    <p class="delta" id="t-g-d"></p>
+  </div>
+</div>
+
+<!-- ACTO 2 -->
+<div class="act"><span class="n">2 · La conciliación</span><h2 id="h-bridge">El puente cierra al centavo: venta bruta − descuentos − devoluciones = venta neta</h2></div>
+<div class="card" id="c-bridge">
+  <div class="cardhead"><div><h3 id="bridgeTitle">Puente de conciliación 2025</h3><p class="sub">Pesos. Hoja Ventas (VentaBruta, Descuento) y hoja Devoluciones (MontoDevuelto), unidas por IdVenta.</p></div><button class="tv" type="button" data-card="c-bridge">Ver tabla</button></div>
+  <div class="chart" id="bridge"></div>
+  <div class="tbl" id="bridgeTbl"></div>
+  <div class="check" id="bridgeCheck"></div>
+</div>
+
+<!-- ACTO 3 -->
+<div class="act"><span class="n">3 · La causa</span><h2>Las devoluciones explican más de seis de cada diez puntos de la brecha</h2></div>
+<div class="grid g2">
+  <div class="card" id="c-growth">
+    <div class="cardhead"><div><h3>Crecimiento 2025 contra 2024 de cada medida</h3><p class="sub">La venta facturada es el subtotal (venta bruta − descuentos).</p></div><button class="tv" type="button" data-card="c-growth">Ver tabla</button></div>
+    <div class="chart" id="growth"></div>
+    <div class="tbl" id="growthTbl"></div>
+  </div>
+  <div class="card" id="c-weights">
+    <div class="cardhead"><div><h3>Peso de cada deducción sobre la venta bruta</h3><p class="sub">Porcentaje de la venta bruta de cada año.</p></div><button class="tv" type="button" data-card="c-weights">Ver tabla</button></div>
+    <div class="legend"><span><span class="swatch" style="background:var(--alert)"></span>Devoluciones</span><span><span class="swatch" style="background:var(--ctx-line)"></span>Descuentos</span></div>
+    <div class="chart" id="weights"></div>
+    <div class="tbl" id="weightsTbl"></div>
+  </div>
+</div>
+
+<!-- ACTO 4 -->
+<div class="act"><span class="n">4 · Dónde</span><h2>Casi todo el aumento de las devoluciones viene de e-commerce</h2></div>
+<div class="grid g2">
+  <div class="card" id="c-chan">
+    <div class="cardhead"><div><h3>Aumento del monto devuelto, 2025 contra 2024</h3><p class="sub">Pesos, por canal de la venta.</p></div><button class="tv" type="button" data-card="c-chan">Ver tabla</button></div>
+    <div class="chart" id="chan"></div>
+    <div class="tbl" id="chanTbl"></div>
+  </div>
+  <div class="card" id="c-rate">
+    <div class="cardhead"><div><h3>Tasa de devolución por canal</h3><p class="sub">Líneas con Devuelta = 1 ÷ líneas vendidas del canal.</p></div><button class="tv" type="button" data-card="c-rate">Ver tabla</button></div>
+    <div class="legend"><span><span class="swatch" style="background:var(--alert)"></span>E-commerce</span><span><span class="swatch" style="background:var(--ctx-line)"></span>Tienda física</span></div>
+    <div class="chart" id="rate"></div>
+    <div class="tbl" id="rateTbl"></div>
+  </div>
+</div>
+<p class="sub" style="margin-top:10px;font-size:13px;color:var(--muted)" id="mixNote"></p>
+
+<!-- ACTO 5 -->
+<div class="act"><span class="n">5 · La decisión</span><h2>Una sola definición de «venta», con dueño y aprobador</h2></div>
+<div class="grid g2">
+  <div class="card">
+    <h3>Definición única acordada</h3>
+    <div class="callout" style="margin-top:10px"><p class="def"><b>Venta neta</b> es la suma, en pesos sin IVA, de la venta bruta a precio de lista de todas las líneas vendidas en el año, en tiendas físicas y en e-commerce, según la fecha de venta registrada, menos los descuentos otorgados en esas mismas líneas y menos el monto reembolsado por sus devoluciones, con cada devolución cargada al año de la venta original y no al de la devolución, y con la cifra de cada año cerrada en una fecha de corte declarada.</p></div>
+    <div class="formula mono">Venta neta(t) = Σ Ventas[VentaBruta] − Σ Ventas[Descuento] − Σ Devoluciones[MontoDevuelto]<br>donde AÑO(Ventas[Fecha]) = t · Devoluciones se une a Ventas por IdVenta</div>
+    <table style="margin-top:12px"><thead><tr><th>Medida</th><th>Nombre oficial</th></tr></thead><tbody>
+      <tr><td>Σ VentaBruta</td><td>Venta bruta a precio de lista</td></tr>
+      <tr><td>Σ VentaBruta − Σ Descuento (hoy columna «VentaNeta»)</td><td>Venta facturada · renombrar a <code>VentaFacturada</code></td></tr>
+      <tr><td>Venta facturada − Σ MontoDevuelto</td><td><b>Venta neta</b> («venta» sin apellido)</td></tr>
+    </tbody></table>
+  </div>
+  <div class="card">
+    <h3>Matriz RACI</h3>
+    <p class="sub">Toque o pase el cursor sobre una letra para ver por qué.</p>
+    <div style="overflow-x:auto"><table class="raci" id="raci"></table></div>
+    <div class="why" id="why" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<!-- ACTO 6 -->
+<div class="act"><span class="n">6 · Antes de firmar</span><h2>Criterios de logro y pendientes</h2></div>
+<div class="grid g2">
+  <div class="card">
+    <h3>Criterios de logro del taller</h3>
+    <ul class="crit">
+      <li><span class="ok">✓</span><span><b>El puente cierra sin residuo.</b> (1) − (2) − (3) − (4) = 0.00 en 2024 y 2025.</span></li>
+      <li><span class="ok">✓</span><span><b>Cada cifra es rastreable.</b> Hoja, columna y fórmula en cada renglón; venta neta comprobada por una vía independiente (Σ VentaNeta con Devuelta = 0).</span></li>
+      <li><span class="ok">✓</span><span><b>Una sola frase que ambas direcciones podrían firmar.</b> Las dos objeciones principales tienen respuesta.</span></li>
+      <li><span class="ok">✓</span><span><b>Una sola R y una sola A por fila</b> en la RACI.</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Lo que falta confirmar</h3>
+    <div class="callout g">
+      <p><b>1.</b> Finanzas confirma que los montos de la base vienen sin IVA.</p>
+      <p><b>2.</b> Finanzas y Operaciones confirman qué evento registra la fecha de venta en e-commerce (pedido, envío o entrega).</p>
+      <p><b>3.</b> Finanzas declara la fecha de corte de devoluciones. <span id="corteNote"></span></p>
+      <p><b>4.</b> Valorar un área de Datos o BI como custodio técnico: hoy Finanzas tiene la R en las cinco filas.</p>
+    </div>
+  </div>
+</div>
+
+<details class="k">
+  <summary>Cómo se construyó este tablero · criterios de Cole Nussbaumer Knaflic</summary>
+  <div class="kgrid">
+    <div class="card"><h4>1. Entender el contexto</h4><p>Público: el Comité de cierre. Idea central en una frase, como título: la venta creció 14.35&nbsp;%, no 20.13&nbsp;%, y las devoluciones de e-commerce explican la diferencia.</p></div>
+    <div class="card"><h4>2. Elegir el visual adecuado</h4><p>Cascada para el puente, barras horizontales para comparar crecimientos, gráficas de pendiente para el cambio entre dos años y número destacado para la cifra única.</p></div>
+    <div class="card"><h4>3. Eliminar el desorden</h4><p>Sin bordes de gráfica, sin ejes verticales ni cuadrícula densa, sin leyendas redundantes; etiquetas directas solo donde aportan.</p></div>
+    <div class="card"><h4>4. Dirigir la atención</h4><p>Gris para el contexto, azul para la venta neta y naranja solo para devoluciones y e-commerce: el color marca lo que hay que ver.</p></div>
+    <div class="card"><h4>5. Pensar como diseñador</h4><p>Jerarquía tipográfica, alineación a la izquierda, contraste validado, modo oscuro, tabla equivalente para cada gráfica y navegación con teclado.</p></div>
+    <div class="card"><h4>6. Contar una historia</h4><p>Seis actos: conflicto, conciliación, causa, ubicación, decisión y pendientes. Cada encabezado es una conclusión, no una etiqueta.</p></div>
+  </div>
+  <p class="foot" style="border:0;margin-top:10px">Referencia: Knaflic, C. N. (2015). <i>Storytelling with Data: A Data Visualization Guide for Business Professionals</i>. Wiley.</p>
+</details>
+
+<p class="foot">IEFPI · Grupo Avance · Diplomado 023-26 Storytelling y Visualización de Datos con IA para Business Intelligence · Módulo 1, Unidad 3 «Del dato a la decisión». Fuente: 023-26_M1U3_Dataset_Taller_Conciliacion_ALUMNO_v2.xlsx (hojas Ventas, Devoluciones y Sucursales). Cálculos con precisión completa; pesos sin decimales y porcentajes con dos decimales al presentar.</p>
+</div>
+
+<script>
+const D = {"total": {"2024": {"bruta": 49357300.0, "desc": 3151259.13, "dev": 2357796.7800000003, "fact": 46206040.87, "neta": 43848244.089999996, "dev_fd": 2254121.62, "neta_fd": 43951919.25, "lineas": 26013, "ndev": 1245, "cruz": 43848244.09}, "2025": {"bruta": 59293450.0, "desc": 4756825.0, "dev": 4395712.24, "fact": 54536625.0, "neta": 50140912.76, "dev_fd": 4309140.71, "neta_fd": 50227484.29, "lineas": 29465, "ndev": 2199, "cruz": 50140912.760000005}}, "canal": {"Tienda física": {"2024": {"bruta": 34017060.0, "desc": 1798376.27, "dev": 1031847.51, "fact": 32218683.73, "neta": 31186836.22, "dev_fd": 987935.21, "neta_fd": 31230748.52, "lineas": 18617, "ndev": 578, "cruz": 31186836.22}, "2025": {"bruta": 32269970.0, "desc": 1948398.44, "dev": 1062732.6099999999, "fact": 30321571.56, "neta": 29258838.95, "dev_fd": 1057466.74, "neta_fd": 29264104.82, "lineas": 17772, "ndev": 604, "cruz": 29258838.95}}, "E-commerce": {"2024": {"bruta": 15340240.0, "desc": 1352882.8599999999, "dev": 1325949.27, "fact": 13987357.14, "neta": 12661407.870000001, "dev_fd": 1266186.41, "neta_fd": 12721170.73, "lineas": 7396, "ndev": 667, "cruz": 12661407.870000001}, "2025": {"bruta": 27023480.0, "desc": 2808426.56, "dev": 3332979.63, "fact": 24215053.44, "neta": 20882073.810000002, "dev_fd": 3251673.9699999997, "neta_fd": 20963379.470000003, "lineas": 11693, "ndev": 1595, "cruz": 20882073.81}}}, "cruce": {"2024->2025": {"n": 51, "monto": 103675.16000000002, "ecom": 29, "ecom_monto": 59762.86}, "2025->2026": {"n": 106, "monto": 190246.68999999997, "ecom": 74, "ecom_monto": 141068.52}}, "lag": {"min": 2, "max": 25}, "tasa_lineas": {"Tienda física": {"2024": 0.031046892625020143, "2025": 0.03398604546477605}, "E-commerce": {"2024": 0.09018388318009735, "2025": 0.13640639698965193}}};
+const S = { year: "2025", crit: "venta" };
+const NS = "http://www.w3.org/2000/svg";
+const fmtP = x => Math.round(x).toLocaleString("en-US");
+const fmtM = x => (x/1e6).toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1}) + " M";
+const pct = x => (x*100).toFixed(2).replace("-","−") + "\u00a0%";
+const pts = x => x.toFixed(2) + "\u00a0pts";
+const sgn = x => (x>=0?"+":"−") + fmtP(Math.abs(x));
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+function bridgeOf(src, y){
+  const t = src[y]; const dev = S.crit === "venta" ? t.dev : t.dev_fd;
+  return { bruta:t.bruta, desc:t.desc, dev, fact:t.bruta - t.desc, neta:t.bruta - t.desc - dev };
+}
+function model(){
+  const a = bridgeOf(D.total,"2024"), b = bridgeOf(D.total,"2025");
+  const g = k => b[k]/a[k] - 1;
+  const gB=g("bruta"), gF=g("fact"), gN=g("neta"), gD=g("desc"), gR=g("dev");
+  const w = (y,k) => y[k]/y.bruta;
+  const dwD = w(b,"desc")-w(a,"desc"), dwR = w(b,"dev")-w(a,"dev");
+  const k = (1+gB)/w(a,"neta");
+  const pD = k*dwD*100, pR = k*dwR*100;
+  const ch = {};
+  for (const c of ["E-commerce","Tienda física"]) ch[c] = { a:bridgeOf(D.canal[c],"2024"), b:bridgeOf(D.canal[c],"2025") };
+  return {a,b,gB,gF,gN,gD,gR,w,dwD,dwR,pD,pR,gap:(gB-gN)*100,ch};
+}
+
+// ---------- tooltip ----------
+const tip = document.getElementById("tip");
+function showTip(html, x, y){ tip.innerHTML = html; tip.style.opacity = 1;
+  const r = tip.getBoundingClientRect(); let L = x + 14, T = y + 14;
+  if (L + r.width > innerWidth - 8) L = x - r.width - 14; if (T + r.height > innerHeight - 8) T = y - r.height - 14;
+  tip.style.left = L + "px"; tip.style.top = T + "px"; }
+function hideTip(){ tip.style.opacity = 0; }
+function bindTip(el, html){
+  el.setAttribute("tabindex","0"); el.setAttribute("role","img"); el.setAttribute("aria-label", html.replace(/<[^>]+>/g," "));
+  el.classList.add("mark");
+  el.addEventListener("pointermove", e => showTip(html, e.clientX, e.clientY));
+  el.addEventListener("pointerleave", hideTip);
+  el.addEventListener("focus", () => { const r = el.getBoundingClientRect(); showTip(html, r.right, r.top); });
+  el.addEventListener("blur", hideTip);
+}
+
+// ---------- svg helpers ----------
+function svg(w,h){ const s = document.createElementNS(NS,"svg"); s.setAttribute("viewBox",`0 0 ${w} ${h}`); s.setAttribute("width",w); s.setAttribute("height",h); return s; }
+function el(tag, attrs, parent){ const e = document.createElementNS(NS,tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, o={}){ const t = el("text",{x,y,"font-size":o.size||12,fill:o.fill||css("--ink2"),"text-anchor":o.anchor||"start","font-weight":o.weight||400,"dominant-baseline":o.base||"auto"},parent); t.textContent = s; return t; }
+// rect with rounded data-end (top for columns, right for horizontal bars)
+function colPath(x,y,w,h,r=4){ r=Math.min(r,h/2,w/2); return `M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`; }
+function barPath(x,y,w,h,r=4){ r=Math.min(r,h/2,w/2); return `M${x},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h-r}Q${x+w},${y+h} ${x+w-r},${y+h}H${x}Z`; }
+const _cv = document.createElement("canvas").getContext("2d");
+function measure(t, size, weight){ _cv.font = `${weight} ${size}px ${getComputedStyle(document.body).fontFamily}`; return _cv.measureText(t).width; }
+const W = id => Math.max(280, document.getElementById(id).clientWidth);
+
+// ---------- 1. tiles ----------
+function renderTiles(M){
+  document.getElementById("t-n").textContent = pct(M.gN);
+  document.getElementById("t-n-d").innerHTML = `${fmtP(M.a.neta)} → <b>${fmtP(M.b.neta)}</b> pesos · Finanzas`;
+  document.getElementById("t-b").textContent = pct(M.gB);
+  document.getElementById("t-b-d").textContent = `${fmtP(M.a.bruta)} → ${fmtP(M.b.bruta)} pesos`;
+  document.getElementById("t-g").textContent = pts(M.gap);
+  document.getElementById("t-g-d").innerHTML = `${pts(M.pR)} por devoluciones y ${pts(M.pD)} por descuentos. Diferencia en puntos porcentuales, no variación relativa.`;
+  document.getElementById("bi-n").textContent = pct(M.gN);
+  document.getElementById("bi-b").textContent = pct(M.gB);
+}
+
+// ---------- 2. bridge ----------
+function renderBridge(M){
+  const y = S.year, t = y === "2024" ? M.a : M.b;
+  document.getElementById("bridgeTitle").textContent = `Puente de conciliación ${y}` + (S.crit === "dev" ? " · devoluciones por año de la devolución" : "");
+  const host = document.getElementById("bridge"); host.innerHTML = "";
+  const w = W("bridge"), h = 300, pl = 8, pr = 8, pt = 26, pb = 46;
+  const s = svg(w,h); host.appendChild(s);
+  const max = Math.max(M.a.bruta, M.b.bruta) * 1.08;  // misma escala para ambos años
+  const yS = v => pt + (h-pt-pb) * (1 - v/max);
+  const steps = [
+    {k:"Venta bruta", sub:"(1) Comercial", base:0, top:t.bruta, v:t.bruta, c:"--ctx", lab:fmtM(t.bruta), f:"Σ Ventas[VentaBruta]"},
+    {k:"Descuentos", sub:"(2)", base:t.bruta - t.desc, top:t.bruta, v:-t.desc, c:"--ctx", lab:"−" + fmtM(t.desc), f:"Σ Ventas[Descuento]"},
+    {k:"Devoluciones", sub:"(3)", base:t.neta, top:t.fact, v:-t.dev, c:"--alert", lab:"−" + fmtM(t.dev), f: S.crit==="venta" ? "Σ Devoluciones[MontoDevuelto] por año de Ventas[Fecha]" : "Σ Devoluciones[MontoDevuelto] por año de FechaDevolucion"},
+    {k:"Venta neta", sub:"(4) Finanzas", base:0, top:t.neta, v:t.neta, c:"--focus", lab:fmtM(t.neta), f:"(1) − (2) − (3)"},
+  ];
+  const band = (w-pl-pr)/steps.length, bw = Math.min(56, band*0.46);
+  el("line",{x1:pl,x2:w-pr,y1:yS(0),y2:yS(0),stroke:css("--rule"),"stroke-width":1},s);
+  steps.forEach((st,i) => {
+    const cx = pl + band*i + band/2, x = cx - bw/2;
+    if (i < steps.length-1){ const lvl = [t.bruta, t.fact, t.neta][i];
+      el("line",{x1:cx+bw/2,x2:cx+band-bw/2,y1:yS(lvl),y2:yS(lvl),stroke:css("--ctx-line"),"stroke-width":1},s); }
+    const g = el("g",{},s);
+    el("rect",{x:cx-band/2+2,y:pt-20,width:band-4,height:h-pt-pb+20,fill:"transparent"},g);
+    el("path",{d:colPath(x, yS(st.top), bw, Math.max(1, yS(st.base)-yS(st.top))), fill:css(st.c)},g);
+    txt(s, cx, yS(st.top)-8, st.lab, {anchor:"middle", size: band<95?11.5:13, fill:css("--ink"), weight: i>=2?650:400});
+    txt(s, cx, h-pb+18, st.k, {anchor:"middle", size: band<95?10.5:12.5, fill:css("--ink2"), weight: i===3?600:400});
+    txt(s, cx, h-pb+34, st.sub, {anchor:"middle", size:11, fill:css("--muted")});
+    bindTip(g, `<b>${st.k} ${y}</b><br>${sgn(st.v).replace("+","")} pesos<br><span style="opacity:.8">${st.f}</span>`);
+  });
+  const res = t.bruta - t.desc - t.dev - t.neta;
+  document.getElementById("bridgeCheck").textContent = `✓ Cierra: ${fmtP(t.bruta)} − ${fmtP(t.desc)} − ${fmtP(t.dev)} − ${fmtP(t.neta)} = ${Math.abs(res).toFixed(2)}`;
+  const rows = [["(1) Venta bruta (Comercial)", M.a.bruta, M.b.bruta, M.gB, "Σ Ventas[VentaBruta]"],["(2) − Descuentos", M.a.desc, M.b.desc, M.gD, "Σ Ventas[Descuento]"],["Subtotal: venta facturada", M.a.fact, M.b.fact, M.gF, "= Σ Ventas[VentaNeta]"],["(3) − Devoluciones", M.a.dev, M.b.dev, M.gR, "Σ Devoluciones[MontoDevuelto], unida por IdVenta"],["(4) = Venta neta (Finanzas)", M.a.neta, M.b.neta, M.gN, "(1) − (2) − (3)"]];
+  document.getElementById("bridgeTbl").innerHTML = `<table><thead><tr><th>Concepto</th><th class="num">2024</th><th class="num">2025</th><th class="num">Crec.</th><th>Fórmula</th></tr></thead><tbody>${rows.map((r,i)=>`<tr${i===4?' style="font-weight:600"':''}><td>${r[0]}</td><td class="num">${fmtP(r[1])}</td><td class="num">${fmtP(r[2])}</td><td class="num">${pct(r[3])}</td><td>${r[4]}</td></tr>`).join("")}</tbody></table>`;
+}
+
+// ---------- 3a. growth ladder + gap ----------
+function renderGrowth(M){
+  const host = document.getElementById("growth"); host.innerHTML = "";
+  const w = W("growth"), narrow = w < 520, lw = narrow ? 0 : Math.min(160, w*0.36), h = narrow ? 290 : 236;
+  const s = svg(w,h); host.appendChild(s);
+  const rows = [["Venta bruta (Comercial)", M.gB, "--ctx"],["Venta facturada", M.gF, "--ctx"],["Venta neta (Finanzas)", M.gN, "--focus"]];
+  const x0 = narrow ? 0 : lw + 8, xmax = w - 70, xs = v => x0 + (xmax-x0) * v / 0.22;
+  rows.forEach((r,i) => { const y = narrow ? 24 + i*52 : 10 + i*36; const g = el("g",{},s);
+    el("rect",{x:0,y:y-(narrow?22:6),width:w,height:narrow?48:32,fill:"transparent"},g);
+    el("path",{d:barPath(x0, y, xs(r[1])-x0, 20), fill:css(r[2])},g);
+    if (narrow) txt(s, 0, y-6, r[0], {size:12.5, fill:css("--ink2"), weight:i===2?600:400});
+    else txt(s, lw, y+14, r[0], {anchor:"end", size:12.5, fill:css("--ink2"), weight:i===2?600:400});
+    txt(s, xs(r[1])+8, y+14, pct(r[1]), {size:13, fill:css("--ink"), weight:i===2?650:400});
+    bindTip(g, `<b>${r[0]}</b><br>Crecimiento 2025 contra 2024: ${pct(r[1])}`); });
+  // gap
+  const yg = narrow ? 196 : 150; txt(s, 0, yg-14, `Brecha de ${pts(M.gap)}, descompuesta`, {size:12.5, fill:css("--ink"), weight:600});
+  const gx0 = 0, gx1 = w, gs = v => (gx1-gx0) * v / M.gap;
+  const segR = gs(M.pR) - 1, segD = gs(M.pD) - 1;
+  const gR = el("g",{},s); el("path",{d:colPath(0,yg,segR,26,0), fill:css("--alert")},gR);
+  const gD = el("g",{},s); el("path",{d:barPath(segR+2,yg,segD,26), fill:css("--ctx")},gD);
+  const lr = `Devoluciones ${pts(M.pR)}`, ld = `Descuentos ${pts(M.pD)}`;
+  if (segR > lr.length*6.6+12) txt(s, 10, yg+17, lr, {size:12.5, fill:"#FFFFFF", weight:650});
+  if (segD > ld.length*6.6+12) txt(s, segR+12, yg+17, ld, {size:12.5, fill:css("--ink")});
+  if (narrow){ txt(s, 0, yg+46, `${pct(M.pR/M.gap)} de la brecha por devoluciones`, {size:12, fill:css("--muted")}); txt(s, 0, yg+62, `${pct(M.pD/M.gap)} por descuentos`, {size:12, fill:css("--muted")}); }
+  else txt(s, 0, yg+46, `${pct(M.pR/M.gap)} de la brecha por devoluciones · ${pct(M.pD/M.gap)} por descuentos`, {size:12, fill:css("--muted")});
+  bindTip(gR, `<b>Devoluciones</b><br>${pts(M.pR)} de ${pts(M.gap)} (${pct(M.pR/M.gap)})<br>Crecieron ${pct(M.gR)}`);
+  bindTip(gD, `<b>Descuentos</b><br>${pts(M.pD)} de ${pts(M.gap)} (${pct(M.pD/M.gap)})<br>Crecieron ${pct(M.gD)}`);
+  document.getElementById("growthTbl").innerHTML = `<table><thead><tr><th>Medida</th><th class="num">Crec. 2025/2024</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${pct(r[1])}</td></tr>`).join("")}<tr><td>Brecha bruta − neta</td><td class="num">${pts(M.gap)}</td></tr><tr><td>· por devoluciones</td><td class="num">${pts(M.pR)}</td></tr><tr><td>· por descuentos</td><td class="num">${pts(M.pD)}</td></tr></tbody></table>`;
+}
+
+// ---------- slope helper ----------
+function slope(id, series, fmtV, yMin, yMax){
+  const host = document.getElementById(id); host.innerHTML = "";
+  const w = W(id), narrow = w < 480, h = 260, pt = 16, pb = 30;
+  const s = svg(w,h); host.appendChild(s);
+  const endLab = se => narrow ? `${fmtV(se.b)} (${se.note})` : `${fmtV(se.b)}  ${se.name} (${se.note})`;
+  const fs = narrow ? 11.5 : 12.5;
+  const maxw = Math.max(...series.map(se => measure(endLab(se), fs, se.focus ? 650 : 400)));
+  const x0 = Math.min(90, w*0.2), x1 = Math.max(x0 + 60, w - maxw - 16);
+  const yS = v => pt + (h-pt-pb) * (1 - (v-yMin)/(yMax-yMin));
+  txt(s, x0, h-8, "2024", {anchor:"middle", size:12, fill:css("--muted")});
+  txt(s, x1, h-8, "2025", {anchor:"middle", size:12, fill:css("--muted")});
+  series.forEach(se => { const g = el("g",{},s); const c = css(se.c);
+    el("line",{x1:x0,x2:x1,y1:yS(se.a),y2:yS(se.b),stroke:"transparent","stroke-width":16},g);
+    el("line",{x1:x0,x2:x1,y1:yS(se.a),y2:yS(se.b),stroke:c,"stroke-width":se.focus?2.5:2,"stroke-linecap":"round"},g);
+    for (const [x,v] of [[x0,se.a],[x1,se.b]]) el("circle",{cx:x,cy:yS(v),r:4.5,fill:c,stroke:css("--surface"),"stroke-width":2},g);
+    txt(s, x0-10, yS(se.a)+4, fmtV(se.a), {anchor:"end", size:12.5, fill:css("--ink2")});
+    txt(s, x1+10, yS(se.b)+4, endLab(se), {size:fs, fill:css("--ink"), weight:se.focus?650:400});
+    bindTip(g, `<b>${se.name}</b><br>2024: ${fmtV(se.a)} · 2025: ${fmtV(se.b)}<br>Cambio: ${se.note}`); });
+}
+function renderWeights(M){
+  const A = M.a, B = M.b;
+  const sr = {name:"Devoluciones", a:A.dev/A.bruta*100, b:B.dev/B.bruta*100, c:"--alert", focus:true};
+  const sd = {name:"Descuentos", a:A.desc/A.bruta*100, b:B.desc/B.bruta*100, c:"--ctx-line"};
+  sr.note = "+" + pts(sr.b - sr.a); sd.note = "+" + pts(sd.b - sd.a);
+  slope("weights", [sd, sr], v => v.toFixed(2)+" %", 4, 8.6);
+  document.getElementById("weightsTbl").innerHTML = `<table><thead><tr><th>Peso sobre venta bruta</th><th class="num">2024</th><th class="num">2025</th><th class="num">Cambio</th></tr></thead><tbody>${[sd,sr].map(x=>`<tr><td>${x.name}</td><td class="num">${x.a.toFixed(2)} %</td><td class="num">${x.b.toFixed(2)} %</td><td class="num">${x.note}</td></tr>`).join("")}<tr><td>Venta neta</td><td class="num">${(A.neta/A.bruta*100).toFixed(2)} %</td><td class="num">${(B.neta/B.bruta*100).toFixed(2)} %</td><td class="num">−${pts(Math.abs(B.neta/B.bruta-A.neta/A.bruta)*100)}</td></tr></tbody></table>`;
+}
+
+// ---------- 4. channel ----------
+function renderChannel(M){
+  const host = document.getElementById("chan"); host.innerHTML = "";
+  const w = W("chan"), narrow = w < 480, lw = narrow ? 84 : 100, h = 150;
+  const s = svg(w,h); host.appendChild(s);
+  const rows = ["E-commerce","Tienda física"].map(c => ({c, d:M.ch[c].b.dev - M.ch[c].a.dev}));
+  const tot = rows.reduce((p,r)=>p+r.d,0);
+  const x0 = lw + 8, xmax = w - (narrow ? 122 : 150), xs = v => x0 + (xmax-x0) * v / Math.max(...rows.map(r=>r.d));
+  rows.forEach((r,i) => { const y = 18 + i*56; const g = el("g",{},s);
+    el("rect",{x:0,y:y-10,width:w,height:44,fill:"transparent"},g);
+    el("path",{d:barPath(x0,y,Math.max(2,xs(r.d)-x0),24), fill:css(i===0?"--alert":"--ctx")},g);
+    txt(s, lw, y+16, r.c, {anchor:"end", size:12.5, fill:css("--ink2"), weight:i===0?600:400});
+    txt(s, Math.max(x0+2,xs(r.d))+8, y+11, sgn(r.d), {size:13, fill:css("--ink"), weight:i===0?650:400});
+    txt(s, Math.max(x0+2,xs(r.d))+8, y+27, pct(r.d/tot) + " del aumento", {size:11.5, fill:css("--muted")});
+    bindTip(g, `<b>${r.c}</b><br>Monto devuelto 2024: ${fmtP(M.ch[r.c].a.dev)}<br>Monto devuelto 2025: ${fmtP(M.ch[r.c].b.dev)}<br>Aumento: ${sgn(r.d)} (${pct(r.d/tot)})`); });
+  document.getElementById("chanTbl").innerHTML = `<table><thead><tr><th>Canal</th><th class="num">Devuelto 2024</th><th class="num">Devuelto 2025</th><th class="num">Aumento</th><th class="num">% del aumento</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.c}</td><td class="num">${fmtP(M.ch[r.c].a.dev)}</td><td class="num">${fmtP(M.ch[r.c].b.dev)}</td><td class="num">${sgn(r.d)}</td><td class="num">${pct(r.d/tot)}</td></tr>`).join("")}</tbody></table>`;
+  const e = M.ch["E-commerce"];
+  document.getElementById("mixNote").textContent = `E-commerce pasó de ${pct(e.a.neta/M.a.neta)} a ${pct(e.b.neta/M.b.neta)} de la venta neta; su venta neta creció ${pct(e.b.neta/e.a.neta-1)} y la de tienda física ${pct(M.ch["Tienda física"].b.neta/M.ch["Tienda física"].a.neta-1)}. Mientras el canal crezca con esta tasa de devolución, la brecha entre Comercial y Finanzas seguirá abriéndose.`;
+}
+function renderRate(){
+  const T = D.tasa_lineas;
+  const se = {name:"E-commerce", a:T["E-commerce"]["2024"]*100, b:T["E-commerce"]["2025"]*100, c:"--alert", focus:true};
+  const sf = {name:"Tienda física", a:T["Tienda física"]["2024"]*100, b:T["Tienda física"]["2025"]*100, c:"--ctx-line"};
+  se.note = "+" + pts(se.b-se.a); sf.note = "+" + pts(sf.b-sf.a);
+  slope("rate", [sf, se], v => v.toFixed(2)+" %", 0, 15);
+  document.getElementById("rateTbl").innerHTML = `<table><thead><tr><th>Canal</th><th class="num">2024</th><th class="num">2025</th><th class="num">Cambio</th></tr></thead><tbody>${[se,sf].map(x=>`<tr><td>${x.name}</td><td class="num">${x.a.toFixed(2)} %</td><td class="num">${x.b.toFixed(2)} %</td><td class="num">${x.note}</td></tr>`).join("")}</tbody></table>`;
+}
+
+// ---------- 5. RACI ----------
+const AREAS = ["Comercial","Finanzas","Operaciones","Dir. General"];
+const RACI = [
+  {f:"Definir la fórmula única de «venta»", v:["C","R","C","A"], R:"Finanzas registra el ingreso y conoce la frontera contable.", A:"Dirección General: el conflicto es entre dos direcciones y ninguna puede aprobar su propia postura."},
+  {f:"Publicar la definición en el diccionario", v:["I","R","I","A"], R:"Finanzas, como dueña, garantiza que el texto publicado es el aprobado.", A:"Dirección General: publicar vuelve obligatoria la definición para todas las áreas."},
+  {f:"Recalcular la serie histórica", v:["C","R","C","A"], R:"Finanzas aplica la fórmula a 2024–2025 y cuadra contra el registro contable.", A:"Dirección General: recalcular cambia cifras ya reportadas."},
+  {f:"Autorizar cambios a la definición", v:["C","R","C","A"], R:"Finanzas prepara la propuesta con su impacto en pesos.", A:"Dirección General: ninguna dirección cambia la definición por su cuenta."},
+  {f:"Vigilar que se use en todos los tableros", v:["I","R","I","A"], R:"Finanzas detecta las desviaciones en los tableros.", A:"Dirección General: solo ella puede corregir un tablero de otra dirección."},
+];
+const ROLE = {R:"Responsable", A:"Aprueba", C:"Consultado", I:"Informado"};
+const CI = {C:{"Comercial":"Conoce el precio de lista y los descuentos (renglones 1 y 2 del puente).","Operaciones":"Conoce las devoluciones, la logística inversa y la fecha de entrega en e-commerce (renglón 3)."},
+            I:{"Comercial":"Debe conocer el resultado, pero no lo produce.","Operaciones":"Debe conocer el resultado, pero no lo produce."}};
+function renderRaci(){
+  const t = document.getElementById("raci");
+  t.innerHTML = `<thead><tr><th>Actividad</th>${AREAS.map(a=>`<th style="text-align:center">${a}</th>`).join("")}</tr></thead><tbody>${RACI.map((r,i)=>`<tr><td>${r.f}</td>${r.v.map((v,j)=>`<td class="l ${v}" tabindex="0" data-i="${i}" data-j="${j}" aria-label="${AREAS[j]}: ${ROLE[v]} en ${r.f}">${v}</td>`).join("")}</tr>`).join("")}</tbody>`;
+  const why = document.getElementById("why");
+  const show = td => { t.querySelectorAll("td.sel").forEach(x=>x.classList.remove("sel")); td.classList.add("sel");
+    const r = RACI[+td.dataset.i], a = AREAS[+td.dataset.j], v = r.v[+td.dataset.j];
+    const reason = v==="R" ? r.R : v==="A" ? r.A : CI[v][a];
+    why.innerHTML = `<p class="k">${r.f}</p><p style="margin:0"><b>${a} · ${ROLE[v]}.</b> ${reason}</p>`; };
+  t.querySelectorAll("td.l").forEach(td => { td.addEventListener("pointerenter",()=>show(td)); td.addEventListener("focus",()=>show(td)); td.addEventListener("click",()=>show(td)); });
+  show(t.querySelector('td.l[data-i="0"][data-j="1"]'));
+}
+
+// ---------- orquestación ----------
+function renderAll(){
+  const M = model(); renderTiles(M); renderBridge(M); renderGrowth(M); renderWeights(M); renderChannel(M); renderRate();
+  const note = document.getElementById("critNote"); note.classList.toggle("on", S.crit === "dev");
+  if (S.crit === "dev") note.textContent = `Vista de sensibilidad, no es el criterio de la Convención: la venta neta cambia ${sgn(M.a.neta - D.total["2024"].neta)} en 2024 y ${sgn(M.b.neta - D.total["2025"].neta)} en 2025, y ${D.cruce["2025->2026"].n} devoluciones de ventas 2025 (${fmtP(D.cruce["2025->2026"].monto)}) quedan fuera de la serie.`;
+}
+function seg(id, key){ const g = document.getElementById(id);
+  g.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { S[key] = b.dataset.v;
+    g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false")); renderAll(); })); }
+seg("segYear","year"); seg("segCrit","crit");
+document.querySelectorAll(".tv").forEach(b => b.addEventListener("click", () => { const c = document.getElementById(b.dataset.card); const on = c.classList.toggle("showtable"); b.textContent = on ? "Ver gráfica" : "Ver tabla"; }));
+document.getElementById("themeBtn").addEventListener("click", () => { const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark"; renderAll(); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", renderAll);
+document.getElementById("corteNote").textContent = `En la base, las devoluciones ocurren entre ${D.lag.min} y ${D.lag.max} días después de la venta; la última de una venta 2025 es del 23 de enero de 2026.`;
+renderRaci(); renderAll();
+let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(renderAll, 80); }).observe(document.querySelector(".wrap"));
+</script>
+</body>
+</html>
